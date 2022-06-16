@@ -1,4 +1,22 @@
-import { galleryItems } from './gallery-items.js';
+import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
 console.log(galleryItems);
+
+const list = document.querySelector(".gallery");
+
+const result = galleryItems
+  .map((element) => {
+    return `
+  <a class="gallery__item" href="${element.original}">
+    <img
+      class="gallery__image"
+      src="${element.preview}"
+      data-source="${element.original}"
+      alt="${element.description}"
+    />
+  </a>`;
+  })
+  .join("");
+
+list.insertAdjacentHTML("afterbegin", result);
