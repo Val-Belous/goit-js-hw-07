@@ -31,18 +31,27 @@ function handlerClick(event) {
   event.preventDefault();
 
   if (event.target.className !== "gallery") {
-    instance = basicLightbox.create(`
-  <img src="${event.target.dataset.source}"/>
-`);
+    instance = basicLightbox.create(
+      `<img src="${event.target.dataset.source}"/>`,
+      {
+        onShow: () => {
+          window.addEventListener("keydown", handlerKey);
+        },
+        onClose: () => {
+          window.removeEventListener("keydown", handlerKey);
+        },
+      }
+    );
 
     instance.show();
   }
 }
 
-// window.addEventListener("keydown", handlerKey);
+gallery.addEventListener("keydown", handlerKey);
 
-// function handlerKey(event) {
-//   if (event.key === "Escape") {
-//     instance.close();
-//   }
-// }
+function handlerKey(event) {
+  if (event.key !== "Escape") {
+    return;
+  }
+  instance.close();
+}
