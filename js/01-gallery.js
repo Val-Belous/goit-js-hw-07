@@ -39,33 +39,10 @@ function handlerClick(event) {
   }
 }
 
-window.addEventListener("keydown", handlerKey);
+// window.addEventListener("keydown", handlerKey);
 
-function handlerKey(event) {
-  if (event.key === "Escape") {
-    instance.close();
-  }
-}
-
-// function handlerClick(event) {
-//   //   console.log(event.target);
-//   event.preventDefault();
-//   if (event.target.className !== "gallery") {
-//     const instance = basicLightbox.create(`
-//   <img src="${event.target.dataset.source}"/>
-// `);
-
-//     window.addEventListener("keydown", handlerKey);
-
-//     function handlerKey(event) {
-//       //   console.log(event.key);
-//       if (event.key === "Escape") {
-//         instance.close();
-
-//         window.removeEventListener("keydown", handlerKey);
-//       }
-//     }
-
-//     instance.show();
+// function handlerKey(event) {
+//   if (event.key === "Escape") {
+//     instance.close();
 //   }
 // }

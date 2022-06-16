@@ -20,3 +20,8 @@ const result = galleryItems
   .join("");
 
 list.insertAdjacentHTML("afterbegin", result);
+
+const lightbox = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
+});
